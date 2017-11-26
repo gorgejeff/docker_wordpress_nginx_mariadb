@@ -22,9 +22,9 @@ mariadb:
         volumes:
                 - ./mariadb:/var/lib/mysql
         environment:
-                MYSQL_ROOT_PASSWORD: ***REMOVED*** 
+                MYSQL_ROOT_PASSWORD: PASSWORD 
                 MYSQL_USER: admin
-                MYSQL_PASSWORD: ***REMOVED***
+                MYSQL_PASSWORD: PASSWORD
                 MYSQL_DATABASE: projectdb
         expose:
                 - "3306"
@@ -38,6 +38,6 @@ phpmyadmin:
                 - 8189:80
         environment:
                 MYSQL_USERNAME: admin
-                MYSQL_ROOT_PASSWORD: ***REMOVED*** 
+                MYSQL_ROOT_PASSWORD: PASSWORD 
                 PMA_HOST: 172.31.23.94
                 PMA_ARBITRARY: 1
