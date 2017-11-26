@@ -1,0 +1,43 @@
+nginx:
+        build: ./nginx/ 
+        ports:
+                - "9180:80"
+        volumes_from:
+                - php
+        volumes:
+                - ./nginx/log:/var/log/nginx
+        links:
+                - php
+
+php:
+        build: ./php/
+        volumes:
+                - /home/ec2-user/docker/project/www:/www
+        links:
+                - mariadb
+
+mariadb:
+        image: mariadb 
+        restart: always
+        volumes:
+                - ./mariadb:/var/lib/mysql
+        environment:
+                MYSQL_ROOT_PASSWORD: ***REMOVED*** 
+                MYSQL_USER: admin
+                MYSQL_PASSWORD: ***REMOVED***
+                MYSQL_DATABASE: projectdb
+        expose:
+                - "3306"
+
+phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        restart: always
+        links:
+                - mariadb
+        ports:
+                - 8189:80
+        environment:
+                MYSQL_USERNAME: admin
+                MYSQL_ROOT_PASSWORD: ***REMOVED*** 
+                PMA_HOST: 172.31.23.94
+                PMA_ARBITRARY: 1
