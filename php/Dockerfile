@@ -35,4 +35,7 @@ echo 'memory_limit = 256M'; \
 echo 'max_execution_time = 600'; \
 echo 'max_input_time = 600'; \
 } > /usr/local/etc/php/php.ini
+
+# Create /www directory
+RUN mkdir /www
 RUN chmod a+rwx -R /www
