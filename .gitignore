@@ -1,3 +1,4 @@
 mariadb/*
 nginx/log/*
 www/*
+.git.bfg-report/*
