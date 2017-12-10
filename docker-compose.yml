@@ -1,7 +1,7 @@
 nginx:
         build: ./nginx/ 
         ports:
-                - "9180:80"
+                - "80:80"
         volumes_from:
                 - php
         volumes:
@@ -35,9 +35,9 @@ phpmyadmin:
         links:
                 - mariadb
         ports:
-                - 8189:80
+                - 8183:80
         environment:
                 MYSQL_USERNAME: admin
                 MYSQL_ROOT_PASSWORD: PASSWORD 
-                PMA_HOST: 172.31.23.94
+                PMA_HOST: 127.0.0.1
                 PMA_ARBITRARY: 1
