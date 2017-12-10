@@ -12,7 +12,7 @@ links:
 php:
 build: ./php/
 volumes:
-- /home/ec2-user/docker/project/www:/www
+- ./www:/www
 links:
 - mariadb
 
